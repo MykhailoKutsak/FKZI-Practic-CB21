@@ -1,0 +1,61 @@
+rt java.util.Scanner;
+
+public class Menu {
+
+    // Змінні для запуску меню
+    public static final String RESET = "\u001B[0m";
+    public static final String WHITE = "\u001B[37m";
+
+    static String currentColor = WHITE;
+    static Scanner scanner = new Scanner(System.in);
+
+    // Код головного меню
+    public static void main(String[] args) {
+        boolean appRunning = true;
+
+        while (appRunning) {
+            // Вывод меню
+            printWithColor("\n_ГОЛОВНЕ МЕНЮ_");
+            printWithColor("1 - Почати гру");
+            printWithColor("2 - Вихід з гри");
+            printWithColor("3 - Теми");
+            System.out.print(currentColor + "Ваш вибір: " + RESET);
+
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "1":
+                    // Заглушка (у майбутньому сюди додамо виклик гри)
+                    stubStartGame();
+                    break;
+                case "2":
+                    printWithColor("Завершення гри");
+                    appRunning = false;
+                    break;
+                case "3":
+                    // Заглушка (сюди впишемо виклик тем)
+                    stubThemesMenu();
+                    break;
+                default:
+                    printWithColor("Помилка. Не допустимий варіант, обирайте з наявних опцій");
+            }
+        }
+    }
+
+    // Частина коду для кольорового тексту
+    private static void printWithColor(String text) {
+        System.out.println(currentColor + text + RESET);
+    }
+
+    // Заглушки (імітація запуску інших частин)
+
+    private static void stubStartGame() {
+        System.out.println(">> (імітація) Запуск гри...");
+        System.out.println(">> (Тут має бути сама гра)");
+    }
+
+    private static void stubThemesMenu() {
+        System.out.println(">> (Імітація) Відкриття меню тем...");
+        System.out.println(">> (Тут має бути вибір кольору)");
+    }
+}
